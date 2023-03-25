@@ -1,0 +1,222 @@
+.home {
+  display: flex;
+  flex: 1;
+  height: 100vh;
+}
+
+.homePage {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.tipData {
+  display: flex;
+}
+
+.header {
+  height: 10%;
+  width: 100%;
+  border-bottom: 1px solid var(--divbackgound);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.tipMe {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  display: flex;
+  width: 100%;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: var(--textcolor);
+  text-transform: uppercase;
+}
+
+.orderDetails {
+  display: flex;
+  flex: 0.5;
+  flex-direction: column;
+  padding: 12px;
+}
+
+.addOrderSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.ordersSection {
+}
+
+.eachData {
+  border: 1px solid var(--textcolor);
+  padding: 16px;
+  margin-bottom: 16px;
+  border-radius: 6px;
+}
+
+.leaderboard {
+  display: flex;
+  flex: 0.5;
+  flex-direction: column;
+  padding: 12px;
+}
+
+.buttonDisable {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.transactionData {
+  margin-bottom: 8px;
+  display: flex;
+}
+
+.transactionData:last-child {
+  margin-bottom: 0px;
+}
+
+.tipTitle {
+  font-size: 40px;
+  font-weight: 800;
+  padding-bottom: 60px;
+}
+
+.transactionData span,
+.transferData span {
+  padding-left: 8px;
+  width: 75%;
+  padding: 12px;
+}
+
+.transactionData strong,
+.transferData strong {
+  width: 25%;
+  background-color: var(--databackgroundgradient);
+  border-radius: 0px 100px 100px 0px;
+  padding: 12px;
+}
+
+.submitButton {
+  background: var(--highlightedtext);
+  border-radius: 6px;
+  color: white;
+  text-transform: uppercase;
+  font-size: 16px;
+  border: none;
+  padding: 8px 32px;
+  cursor: pointer;
+}
+
+.orderData .submitButton {
+  width: 350px;
+  margin: 24px 0;
+}
+
+.withdrawButton {
+  display: flex;
+  justify-content: center;
+  margin: 24px 0;
+}
+
+.addAction {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.loader {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  color: #f8ba48;
+}
+
+.loader img {
+  height: 80px;
+  width: 80px;
+  animation: lightson 0.75s ease 4 forwards;
+  margin-bottom: 12px;
+}
+
+@keyframes lightson {
+  0% {
+    opacity: 0;
+    /* text-shadow: 0px 0px 0px #fe1dad, 0px 0px 0px #fe1dad, 0px 0px 0px #fe1dad;
+      box-shadow: 0px 0px 0px 0px #fe1dad, 0px 0px 0px 0px #fe1dad; */
+    /* 0px 0px 0px 0px #fe1dad, inset 0px 0px 0px #fe1dad; */
+  }
+  20% {
+    opacity: 0.5;
+    /* text-shadow: 0px 0px 2.5px #fe1dad, 0px 0px 5px #fe1dad,
+        1px 1px 25px #fe1dad;
+      box-shadow: 0px 0px 5px 0px #fe1dad, 0px 0px 10px 0px #fe1dad,
+        0px 0px 50px 0px #fe1dad, inset 0px 0px 20px #fe1dad; */
+  }
+  40% {
+    opacity: 1;
+    /* text-shadow: 0px 0px 1px #fe1dad, 0px 0px 2px #fe1dad, 0px 0px 10px #fe1dad;
+      box-shadow: 0px 0px 2px 0px #fe1dad, 0px 0px 5px 0px #fe1dad,
+        0px 0px 25px 0px #fe1dad, inset 0px 0px 10px #fe1dad; */
+  }
+  50% {
+    opacity: 0.5;
+    /* text-shadow: 0px 0px 5px #fe1dad, 0px 0px 10px #fe1dad, 1px 1px 50px #fe1dad;
+      box-shadow: 0px 0px 10px 0px #fe1dad, 0px 0px 20px 0px #fe1dad,
+        0px 0px 100px 0px #fe1dad, inset 0px 0px 30px #fe1dad; */
+  }
+  100% {
+    opacity: 1;
+    /* text-shadow: 0px 0px 5px #fe1dad, 0px 0px 10px #fe1dad, 1px 1px 50px #fe1dad;
+      box-shadow: 0px 0px 10px 0px #fe1dad, 0px 0px 30px 0px #fe1dad,
+        0px 0px 100px 0px #fe1dad, inset 0px 0px 30px #fe1dad; */
+  }
+}
+
+.orderData {
+  display: flex;
+  flex-direction: column;
+}
+
+.orderData strong {
+  width: 40%;
+  background-color: var(--databackgroundgradient);
+  border-radius: 0px 100px 100px 0px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.orderData span {
+  padding-left: 8px;
+  width: 40%;
+  padding: 12px;
+}
+
+input {
+  height: 30px;
+  background: var(--divbackgound);
+  border: 1px solid var(--textcolor);
+  border-radius: 6px;
+  width: 325px;
+  padding: 0 16px 0 8px;
+  color: var(--textcolor);
+  margin-right: 16px;
+}

@@ -1,0 +1,41 @@
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  --divbackgound: #302d4b;
+  --themecolor: #28243d;
+  --textcolor: #cac8e1;
+  --highlightedtext: #9155fd;
+  --greytext: #9794af;
+  --databackgroundgradient: rgba(231, 227, 252, 0.04);
+
+  --boxshadowcolor: rgb(19 17 32 / 42%) 0px 4px 8px -4px;
+  --backgroundimagegradient: linear-gradient(
+    98deg,
+    rgb(198, 167, 254),
+    rgb(145, 85, 253) 94%
+  );
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 100vw;
+  background-color: var(--themecolor);
+  color: var(--textcolor);
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+#root {
+  width: 100%;
+}
