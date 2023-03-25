@@ -1,11 +1,11 @@
-# TIP ME!
-A decentralized system for restaurant servers to log their orders and collect their tips in ETH!
+# TIP ME - Tip Management System using Avalanche!
+A decentralized system for restaurant servers to log their orders and collect their tips in AVAX!
 
 ## PROBLEM STATEMENT
-In the current scenario, we have seen that the tipping system is flawed. When we say flawed, it means that the server work the whole day, server the customers, get tipped and at the end of the day when it's time to collect their wages, it gets split amongst all the servers. We think this is unfair. When a certain server who is excellent at their work and manages to get more tips as compared to others who may not be so good with their customers ends up having to split their share with the rest seems wrong. The server has earned the tip because of their exceptional service. We are here to change how this thing works. 
+In the current scenario, we have seen that the tipping system is flawed. When we say flawed, it means that the server work the whole day, server the customers, get tipped and at the end of the day when it's time to collect their wages, it gets split amongst all the servers. We think this is unfair. When a certain server who is excellent at their work and manages to get more tips as compared to others who may not be so good with their customers ends up having to split their share with the rest seems wrong. The server has earned the tip because of their exceptional service. We are here to change how this works. 
 
 ## GOALS
-Our goal is to create a decentralized web portal wherein the servers are able to login to a system, log their orders along with the tips they received & withdraw the total tip they have accumulated in Ether.
+Our goal is to create a decentralized web portal wherein the servers are able to login to a system, log their orders along with the tips they received & withdraw the total tip they have accumulated in AVAX.
 
 ## STAKEHOLDERS
 
@@ -18,6 +18,7 @@ Our goal is to create a decentralized web portal wherein the servers are able to
 
 - Some countries may have strict regulations on the use of cryptocurrency as a mode of payment. In such a case, the use of Ether will have to be substituted with that of a Fiat currency.
 - The servers are restricted to adding only the orders they have served. They will not be able to add for others as they have to login to the system using their Metamask wallet.
+- This system has been built as a standalone system at this point and is not linked to any legacy system of a restaurant, we for the purpose of this project are required to add some AVAX tokens in the contract while deploying it in order to pay the servers their tips in AVAX.
 
 ## DATA
 - There is no need to store any Personally Identifiable Information of the servers.
@@ -45,7 +46,7 @@ A server takes the orders from the customers and serves them the food. Impressed
 
 ## TECH STACK
 - Programming languages: Solidity, Javascript
-- Blockchain platform: Ethereum, Goerli
+- Blockchain platform: Avalanche/Ethereum, Fuji C-Chain Testnet
 
 # PROJECT PLAN
 
@@ -54,20 +55,17 @@ A server takes the orders from the customers and serves them the food. Impressed
 - Vite.js
 - React
 
-## GANTT CHART – SIMPLE
-
-
 # SMART CONTRACT
 
-#### TipMe.SOL (0XE49D4933EDF843EE3294A456467EDC758D32184D  - Goerli Testnet)
+#### TipMe.SOL (0XE49D4933EDF843EE3294A456467EDC758D32184D  - Fuji C-Chain Testnet)
 - Default contract for executing the functions of the program.
-- - https://goerli.etherscan.io/address/0xe49d4933edf843ee3294a456467edc758d32184d
+- - <!!Enter Snowtrace Link Here!!>
 
 # HOW TO RUN PROJECT
 
 #### Clone repository
-git clone https://github.com/suryapranesh4/Tip-Management-System-Dapp.git <br/>
-cd Tip-Management-System-Dapp
+git clone https://github.com/suryapranesh4/Tip-Management-System-Avalanche <br/>
+cd Tip-Management-System-Avalanche
 
 #### Install dependencies for smart contract
 cd smart_contract && npm install
@@ -112,6 +110,3 @@ npm run dev
 
 #### Metamask wallet connection: <br/>
 ![TipMe Application](wallet.png "TipMe Application") <br/>
-
-
-# Tip-Management-System-Avalanche
