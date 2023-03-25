@@ -7,6 +7,14 @@ In the current scenario, we have seen that the tipping system is flawed. When we
 ## GOALS
 Our goal is to create a decentralized web portal wherein the servers are able to login to a system, log their orders along with the tips they received & withdraw the total tip they have accumulated in AVAX.
 
+## WHY AVALANCHE?
+The reason we chose to use Avalanche over other blockchain platforms is quite simple. 
+
+- Avalanche is a blockchain that works on top of Ethereum which therefore enables it to harness the functionality that the Ethereum Blockchain provides.
+- It also provides the users with one of the lowest transaction costs associated with blockchain as well as higher turn around time 
+with regards to processing transactions.
+- The consensus mechanism that Avalanche uses makes it energy efficient and therefore produces a lower carbon footprint and help protect the environment!
+
 ## STAKEHOLDERS
 
 - Customers: These include the people who are here at the restaurant to have their meal. They act as the soruce of tips for the servers. 
