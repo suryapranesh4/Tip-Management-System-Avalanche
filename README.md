@@ -4,7 +4,7 @@ A decentralized system for restaurant servers to log their orders and collect th
 
 ## PROBLEM STATEMENT
 
-In the current scenario, we have seen that the tipping system is flawed. When we say flawed, it means that the server work the whole day, server the customers, get tipped and at the end of the day when it's time to collect their wages, it gets split amongst all the servers. We think this is unfair. When a certain server who is excellent at their work and manages to get more tips as compared to others who may not be so good with their customers ends up having to split their share with the rest seems wrong. The server has earned the tip because of their exceptional service. We are here to change how this works.
+In the current scenario, we have seen that the tipping system is flawed. When we say flawed, it means that the server works the whole day, serve the customers, get tipped and at the end of the day when it's time to collect their wages, it gets split amongst all the servers. We think this is unfair. When a certain server who is excellent at their work and manages to get more tips as compared to others who may not be so good with their customers ends up having to split their share with the rest seems wrong. The server has earned the tip because of their exceptional service. We are here to change how this works.
 
 ## GOALS
 
