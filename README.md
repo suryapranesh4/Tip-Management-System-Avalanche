@@ -67,6 +67,8 @@ The reason we chose to use Avalanche over other blockchain platforms is quite si
 
 ## DIAGRAM (FLOW, SYSTEM)
 
+![TipMe Application](flowchart.png "TipMe Application") <br/>
+
 ## TECH STACK
 
 - Programming languages: Solidity, Javascript
@@ -79,13 +81,14 @@ The reason we chose to use Avalanche over other blockchain platforms is quite si
 - NPM
 - Vite.js
 - React
+- Hardhat
 
 # SMART CONTRACT
 
-#### TipMe.SOL (0XE49D4933EDF843EE3294A456467EDC758D32184D - Fuji C-Chain Testnet)
+#### TipMe.SOL (0xA175c9012bf61D9E32216559B2962a0AA4Dd8315 - Fuji C-Chain Testnet)
 
 - Default contract for executing the functions of the program.
-- - <!!Enter Snowtrace Link Here!!>
+- https://testnet.snowtrace.io/address/0xA175c9012bf61D9E32216559B2962a0AA4Dd8315
 
 # HOW TO RUN PROJECT
 
@@ -116,9 +119,9 @@ npm run dev (Fires the local vite frontend server on port 5173)
 
 ![TipMe Application](connect.png "TipMe Application") <br/>
 
-#### Goerli etherscan - Smart contract screenshot : <br/>
+#### Snowflake deployed contract with AVAX loaded: <br/>
 
-![TipMe Application](etherscan.png "TipMe Application") <br/>
+![TipMe Application](contract.png "TipMe Application") <br/>
 
 #### Initial UI of the app : <br/>
 
@@ -126,20 +129,16 @@ npm run dev (Fires the local vite frontend server on port 5173)
 
 #### Loading screen : <br/>
 
-![TipMe Application](loaders.png "TipMe Application") <br/>
+![TipMe Application](connect.png "TipMe Application") <br/>
 
 #### Tip Management application : <br/>
 
 ![TipMe Application](mainscreen.png "TipMe Application") <br/>
 
-#### Metamask wallet interaction: <br/>
+#### After 'Add Order', order details with link to snowflake transaction : <br/>
 
-![TipMe Application](metamask.png "TipMe Application") <br/>
+![TipMe Application](snowflakeLink.png "TipMe Application") <br/>
 
-#### Testing code in remix : <br/>
+#### Snowflake contract transactions after 'Withdraw Tips' by Server : <br/>
 
-![TipMe Application](remix.png "TipMe Application") <br/>
-
-#### Metamask wallet connection: <br/>
-
-![TipMe Application](wallet.png "TipMe Application") <br/>
+![TipMe Application](snowflake.png "TipMe Application") <br/>
