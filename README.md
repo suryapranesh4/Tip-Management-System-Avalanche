@@ -31,6 +31,7 @@ The reason we chose to use Avalanche over other blockchain platforms is quite si
 - Some countries may have strict regulations on the use of cryptocurrency as a mode of payment. In such a case, the use of Ether will have to be substituted with that of a Fiat currency.
 - The servers are restricted to adding only the orders they have served. They will not be able to add for others as they have to login to the system using their Metamask wallet.
 - This system has been built as a standalone system at this point and is not linked to any legacy system of a restaurant, we for the purpose of this project are required to add some AVAX tokens in the contract while deploying it in order to pay the servers their tips in AVAX.
+- Adding to the previous point, due to the lack of a legacy system, we have made the provision for adding the details of the order & tip manually in the system. However, in a real world scenario, this provision will be eliminated with the use of a legacy system linked to this application where all the order details will be populated using the Order ID.
 
 ## DATA
 
@@ -39,9 +40,17 @@ The reason we chose to use Avalanche over other blockchain platforms is quite si
 - We are also storing the individual order data in order to back trace and have a history of orders served in a period.
 - Other than that, we are not storing any data off-chain as the data size is well within the on-chain limit.
 
-## USER STORIES
+## USER STORY
 
-A server takes the orders from the customers and serves them the food. Impressed by the quality of service provided by the server, the customers give a generous tip to the server. Delighted with the tip, the server goes to the Tip Me system and logs the order for the previous customers. Upon submitting the order, the server sees that they are on the top of the Waiters Leaderboard. She serves many other customers and the tips keep on adding to her balance. At the end of the shift, she sees that she has managed to accumulate a substantial amount of tip in the system. She therefore thinks of withdrawing the balance to her Metamask Wallet. She then proceeds to do so by clicking on the withdraw button and confirming the withdrawal on her Metamask Wallet prompt. In a few minutes she sees the amount deposited in her wallet!
+1. A server takes the orders from the customers and serves them the food.
+2. Impressed by the quality of service provided by the server, the customers give a generous tip to the server.
+3. Delighted with the tip, the server goes to the Tip Me system and logs the order for the previous customers.
+4. Upon submitting the order, the server sees that they are on the top of the Waiters Leaderboard.
+5. She serves many other customers and the tips keep on adding to her balance.
+6. At the end of the shift, she sees that she has managed to accumulate a substantial amount of tip in the system.
+7. She therefore thinks of withdrawing the balance to her Metamask Wallet.
+8. She then proceeds to do so by clicking on the withdraw button and confirming the withdrawal on her Metamask Wallet prompt.
+9. In a few minutes she sees the amount deposited in her wallet!
 
 # ARCHITECTURE
 
