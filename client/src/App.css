@@ -1,0 +1,6 @@
+.layout {
+  display: grid;
+  grid-template-columns: 0.2fr 0.8fr;
+  grid-template-rows: 0.075fr 0.925fr;
+  height: 100vh;
+}

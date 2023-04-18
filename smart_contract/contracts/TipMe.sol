@@ -65,6 +65,15 @@ contract TipMe {
         }
     }
 
+    function updateWaiterName(string memory name) public {
+        for (uint256 i = 0; i < waiters.length; i++) {
+            if (waiters[i].waiterAddress == msg.sender) {
+                waiters[i].waiterName = name;
+            }
+        }
+        addressToWaiterName[msg.sender] = name;
+    }
+
     function withdrawTips() public {
         uint256 amountToReturn = waiterToTip[msg.sender];
         address payable waiter = payable(msg.sender);

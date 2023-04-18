@@ -1,7 +1,6 @@
 .home {
-  display: flex;
-  flex: 1;
-  height: 100vh;
+  position: relative;
+  height: 100%;
 }
 
 .homePage {
@@ -12,6 +11,19 @@
 
 .tipData {
   display: flex;
+  align-items: center;
+  font-size: 20px;
+  justify-content: space-between;
+}
+
+.totalAVAX {
+  display: flex;
+  justify-content: center;
+}
+
+.orderTotalAmount {
+  margin-bottom: 32px;
+  font-size: 24px;
 }
 
 .header {
@@ -30,7 +42,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100%;
 }
 
 .title {
@@ -39,6 +51,15 @@
   margin-bottom: 16px;
   display: flex;
   width: 100%;
+}
+
+.serverTitle {
+  font-size: 32px;
+  font-weight: 600;
+  margin: 32px 32px 16px 32px;
+  display: flex;
+  justify-content: center;
+  width: auto;
 }
 
 .subtitle {
@@ -93,7 +114,7 @@
 .tipTitle {
   font-size: 40px;
   font-weight: 800;
-  padding-bottom: 60px;
+  padding-bottom: 32px;
 }
 
 .transactionData span,
@@ -111,15 +132,60 @@
   padding: 12px;
 }
 
+.withdrawSection {
+  margin: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.withdraw {
+  margin-bottom: 32px;
+}
+
 .submitButton {
-  background: var(--highlightedtext);
-  border-radius: 6px;
+  background: var(--backgroundimagegradient);
   color: white;
-  text-transform: uppercase;
-  font-size: 16px;
+  border-radius: 8px;
   border: none;
-  padding: 8px 32px;
+  padding: 12px 24px;
   cursor: pointer;
+  -webkit-box-shadow: 0px 0px 10px 2px var(--highlightedtext);
+  -moz-box-shadow: 0px 0px 10px 2px var(--highlightedtext);
+  box-shadow: 0px 0px 10px 2px var(--highlightedtext);
+  font-size: 20px;
+}
+
+.submitDisable {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.updateName {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.updateName input {
+  width: 300px;
+}
+
+.updateNameButton {
+  background: var(--backgroundimagegradient);
+  color: white;
+  border-radius: 8px;
+  border: none;
+  padding: 10px 24px;
+  cursor: pointer;
+  width: 200px;
+  font-size: 16px;
+}
+
+.updateDisable {
+  opacity: 0.3;
+  cursor: not-allowed;
 }
 
 .orderData .submitButton {
@@ -147,6 +213,7 @@
   align-items: center;
   flex: 1;
   color: #f8ba48;
+  position: relative;
 }
 
 .loader img {
@@ -212,11 +279,375 @@
 
 input {
   height: 30px;
-  background: var(--divbackgound);
   border: 1px solid var(--textcolor);
-  border-radius: 6px;
-  width: 325px;
+  border-radius: 8px;
   padding: 0 16px 0 8px;
   color: var(--textcolor);
-  margin-right: 16px;
+}
+
+.appTitle {
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  font-size: 32px;
+  font-weight: bold;
+  background: white;
+  /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+}
+
+.appTitleIcon {
+  width: 35px;
+  height: 35px;
+  margin-right: 12px;
+}
+
+.searchBar {
+  padding: 16px 32px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background: white;
+  /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+}
+
+.searchIcon {
+  width: 20px;
+  height: 20px;
+  margin: 0px 16px;
+}
+
+.profileIcon {
+  width: 22px;
+  height: 20px;
+  margin: 0px 16px;
+  cursor: pointer;
+}
+
+.disableProfile {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.connectIcon {
+  width: 50px;
+  height: 50px;
+  margin: 16px;
+}
+
+.notification {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.notificationNumber {
+  position: absolute;
+  right: 8px;
+  top: -8px;
+  background: red;
+  color: white;
+  font-size: 12px;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.NavBar {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.eachItem {
+  display: flex;
+  align-items: center;
+  color: black;
+  border-radius: 8px;
+  padding: 12px;
+  margin: 12px 0;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.selected {
+  display: flex;
+  align-items: center;
+  color: white;
+  background: var(--backgroundimagegradient);
+  border-radius: 8px;
+  padding: 12px;
+  margin: 12px 0;
+  cursor: pointer;
+  -webkit-box-shadow: 0px 0px 10px 2px var(--highlightedtext);
+  -moz-box-shadow: 0px 0px 10px 2px var(--highlightedtext);
+  box-shadow: 0px 0px 10px 2px var(--highlightedtext);
+}
+
+.dashboard {
+  height: 100%;
+}
+
+.welcomeBox {
+  border-radius: 20px;
+  background: var(--backgroundimagegradient);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  color: white;
+  padding: 0 16px;
+  margin: 32px 32px 24px 32px;
+}
+
+.welcomeText {
+  font-size: 20px;
+}
+
+.welcomeName {
+  margin-top: 4px;
+  font-size: 32px;
+}
+
+.waiterName {
+  font-size: 32px;
+}
+
+.waiterAccount {
+  font-size: 20px;
+}
+
+.welcomeBalance {
+  font-size: 24px;
+}
+
+.stats {
+  margin: 0 32px;
+}
+
+.allStats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.infoBox {
+  width: 100%;
+  border-radius: 8px;
+  background: var(--backgroundimagegradient);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  height: 200px;
+  font-size: 40px;
+}
+
+.green {
+  background: green;
+}
+
+.red {
+  background: red;
+}
+
+.orange {
+  background: orange;
+}
+
+.blue {
+  background: #06befa;
+}
+
+.steelblue {
+  background: steelblue;
+}
+
+.violet {
+  background: #222a45;
+}
+
+.infoTitle {
+  display: flex;
+  align-items: center;
+  padding: 24px;
+  font-size: 32px;
+}
+
+.infoLabel {
+  padding: 24px;
+  margin: 0 auto;
+}
+
+.statIcon {
+  margin-right: 12px;
+}
+
+.navIcon {
+  margin-right: 8px;
+}
+
+.addOrder,
+.orderHistory,
+.tipHistory,
+.serverLeaderboard {
+  z-index: 1;
+  height: 100%;
+}
+
+.addOrderData,
+.orderHistoryData,
+.tipHistoryData,
+.serverLeaderboardData {
+  padding: 32px 32px 16px 32px;
+}
+
+.orderSection {
+  margin-bottom: 16px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 16px;
+  background: white;
+}
+
+.servedBy {
+  font-size: 24px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.servedByButton {
+  background: var(--backgroundimagegradient);
+  color: white;
+  border-radius: 8px;
+  border: none;
+  padding: 12px 24px;
+  width: fit-content;
+}
+
+.addOrderButton {
+  background: var(--backgroundimagegradient);
+  color: white;
+  border-radius: 8px;
+  border: none;
+  padding: 12px 24px;
+  cursor: pointer;
+  width: 200px;
+  margin: 16px 0 16px auto;
+  font-size: 18px;
+}
+
+.addOrderDisable {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.thankyou {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tipData {
+  display: flex;
+  margin-top: 16px;
+}
+
+.tipSubmit {
+  display: flex;
+  flex-direction: column;
+  margin: 24px 0 0 auto;
+}
+
+.tipSubmit input {
+  width: 200px;
+}
+
+.doneButton {
+  background: var(--backgroundimagegradient);
+  color: white;
+  border-radius: 8px;
+  border: none;
+  padding: 12px 24px;
+  cursor: pointer;
+  margin: auto;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+}
+
+.addOrderDisabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.qrtitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 48px;
+}
+
+.orderItems {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.qrtitle .title {
+  font-size: 24px;
+  width: auto;
+  margin-bottom: 24px;
+}
+
+.orderItems .title {
+  font-size: 24px;
+  width: auto;
+  margin: 0 auto 24px auto;
+}
+
+.orderItems input {
+  width: 80%;
+}
+
+.profileDetails {
+  font-size: 24px;
+  padding: 32px;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.profileField {
+  max-width: 200px;
+}
+
+.tipData input {
+  width: 200px;
+  margin-left: 16px;
+}
+
+.addIcon {
+  margin-right: 8px;
+}
+
+.addItem {
+  display: flex;
+  cursor: pointer;
+  margin: 16px auto;
+  align-items: center;
+  border: 1px solid var(--text-color);
+  border-radius: 8px;
+  padding: 4px 16px;
+  width: fit-content;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }

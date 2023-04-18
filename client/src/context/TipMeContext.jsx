@@ -17,6 +17,8 @@ const getTipMeContract = () => {
 
 export const Provider = ({ children }) => {
   const [currentAccount, setCurrentAccount] = useState("");
+  const [accountBalance, setAccountBalance] = useState(0);
+  const [waiterName, setWaiterName] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [transactions, setTransactions] = React.useState([]);
 
@@ -27,8 +29,18 @@ export const Provider = ({ children }) => {
     tipAmount: null,
   });
 
+  const [formName, setFormName] = useState("");
+
   const handleChange = (e, name) => {
     setFormData({ ...formData, [name]: e.target.value });
+  };
+
+  const setOrderAmount = (total) => {
+    setFormData({ ...formData, orderAmount: total });
+  };
+
+  const handleNameUpdate = (name) => {
+    setFormName(name);
   };
 
   const getOrders = async () => {
@@ -46,7 +58,9 @@ export const Provider = ({ children }) => {
     }));
 
     setOrders(structuredOrders);
-    setIsLoading(false);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1500);
   };
 
   const getLeaderboard = async () => {
@@ -62,7 +76,9 @@ export const Provider = ({ children }) => {
     }));
 
     setLeaderBoard(structuredWaiters);
-    setIsLoading(false);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1500);
   };
 
   const sendAVAXToContract = async () => {
@@ -72,7 +88,9 @@ export const Provider = ({ children }) => {
     const valueInWei = ethers.utils.parseUnits("0.0002", "ether");
     const sendTransaction = await tipMeContract.sendAVAXToContract(valueInWei);
     const tx = await sendTransaction.wait();
-    setIsLoading(false);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1500);
   };
 
   const checkIfWalletIsConnected = async () => {
@@ -94,7 +112,9 @@ export const Provider = ({ children }) => {
 
     getOrders();
     getWaiters();
-    setIsLoading(false);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1500);
   };
 
   const connectWallet = async () => {
@@ -111,8 +131,11 @@ export const Provider = ({ children }) => {
 
       const addWaiter = await tipMeContract.addWaiter();
       const tx = await addWaiter.wait();
-      setIsLoading(false);
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1500);
     } catch (error) {
+      setIsLoading(false);
       throw new Error("No Ethereum Object");
     }
   };
@@ -127,6 +150,8 @@ export const Provider = ({ children }) => {
 
       const tipInWei = ethers.utils.parseUnits(tipAmount, "ether");
 
+      console.log(orderAmount, tipInWei);
+
       const addOrderReceipt = await tipMeContract.addOrder(
         orderAmount,
         tipInWei
@@ -136,9 +161,64 @@ export const Provider = ({ children }) => {
 
       getOrders();
       getLeaderboard();
-
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1500);
+    } catch (error) {
       setIsLoading(false);
-    } catch (error) {}
+    }
+  };
+
+  const getWalletBallance = async () => {
+    try {
+      if (!ethereum) return alert("Please Install Metamask");
+      setIsLoading(true);
+
+      const tipMeContract = getTipMeContract();
+      const balance = await tipMeContract.waiterToTip(currentAccount);
+      setAccountBalance(balance);
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1500);
+    } catch (error) {
+      setIsLoading(false);
+    }
+  };
+
+  const getWaiterName = async () => {
+    try {
+      if (!ethereum) return alert("Please Install Metamask");
+      setIsLoading(true);
+
+      const tipMeContract = getTipMeContract();
+      const name = await tipMeContract.addressToWaiterName(currentAccount);
+      setWaiterName(name);
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1500);
+    } catch (error) {
+      setIsLoading(false);
+    }
+  };
+
+  const updateWaiterName = async () => {
+    try {
+      if (!ethereum) return alert("Please Install Metamask");
+      setIsLoading(true);
+
+      const tipMeContract = getTipMeContract();
+      const nameReceipt = await tipMeContract.updateWaiterName(formName);
+      const tx = await nameReceipt.wait();
+      setWaiterName(formName);
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1500);
+
+      getOrders();
+      getLeaderboard();
+    } catch (error) {
+      setIsLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -161,6 +241,13 @@ export const Provider = ({ children }) => {
         sendAVAXToContract,
         withdrawTips,
         transactions,
+        getWalletBallance,
+        accountBalance,
+        getWaiterName,
+        waiterName,
+        updateWaiterName,
+        setOrderAmount,
+        handleNameUpdate,
       }}
     >
       {children}

@@ -9,31 +9,40 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
   --divbackgound: #302d4b;
-  --themecolor: #28243d;
-  --textcolor: #cac8e1;
+  --themecolor: #ebeff3;
+  --textcolor: #000000;
   --highlightedtext: #9155fd;
   --greytext: #9794af;
   --databackgroundgradient: rgba(231, 227, 252, 0.04);
+  --scrollbar-track: #f4f7fe;
+  --scrollbar-thumb: #d3d9e9;
 
   --boxshadowcolor: rgb(19 17 32 / 42%) 0px 4px 8px -4px;
   --backgroundimagegradient: linear-gradient(
     98deg,
-    rgb(198, 167, 254),
-    rgb(145, 85, 253) 94%
+    rgb(145, 85, 253),
+    rgb(198, 167, 254) 94%
   );
 }
 
 body {
   margin: 0;
   display: flex;
-  place-items: center;
-  min-width: 100vw;
   background-color: var(--themecolor);
   color: var(--textcolor);
+  font-family: "Nunito";
 }
 
 body::-webkit-scrollbar {
-  display: none; /* Safari and Chrome */
+  width: 0.75rem !important;
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--scrollbar-track) !important;
+}
+body::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb) !important;
+  border-radius: 20px;
 }
 
 #root {

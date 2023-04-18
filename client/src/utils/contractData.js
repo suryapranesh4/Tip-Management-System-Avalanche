@@ -1,5 +1,5 @@
 // Fuji Avalanche
-export const contractAddress = "0xEC35E030248471E2b6989Bde2FFfd3C46a8112a9";
+export const contractAddress = "0xb41C1aaf581Cf300d11433a4A1CA469F529bb02d";
 export const contractABI = [
   {
     inputs: [
@@ -30,6 +30,19 @@ export const contractABI = [
     inputs: [],
     stateMutability: "payable",
     type: "constructor",
+  },
+  {
+    inputs: [
+      {
+        internalType: "string",
+        name: "name",
+        type: "string",
+      },
+    ],
+    name: "updateWaiterName",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
   },
   {
     inputs: [],
