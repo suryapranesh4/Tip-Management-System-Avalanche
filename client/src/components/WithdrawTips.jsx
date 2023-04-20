@@ -13,9 +13,8 @@ export default function WithdrawTips({
   isLoading,
 }) {
   const calculateBalance = (balance) => {
-    if (balance > 0) {
-      let toNumber = balance.toNumber(),
-        balanceInEther = ethers.utils.formatEther(toNumber);
+    if (balance > 0 && parseInt(balance.toString()) > 0) {
+      let balanceInEther = ethers.utils.formatEther(balance);
 
       return `${balanceInEther} AVAX`;
     } else return `0 AVAX`;
@@ -57,9 +56,15 @@ export default function WithdrawTips({
         /> */}
             <div
               className={
-                balance > 0 ? "submitButton" : "submitButton submitDisable"
+                balance > 0 && ethers.utils.formatEther(balance) > 0
+                  ? "submitButton"
+                  : "submitButton submitDisable"
               }
-              onClick={balance > 0 ? withdrawTips() : null}
+              onClick={() =>
+                balance > 0 && ethers.utils.formatEther(balance) > 0
+                  ? withdrawTips()
+                  : null
+              }
             >
               Withdraw Tips
             </div>

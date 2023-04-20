@@ -17,26 +17,27 @@ export default function Dashbaord({
   isLoading,
 }) {
   const calculateBalance = (balance) => {
-    if (balance > 0) {
-      let toNumber = balance.toNumber(),
-        balanceInEther = ethers.utils.formatEther(toNumber);
+    if (balance > 0 && parseInt(balance.toString()) > 0) {
+      let balanceInEther = ethers.utils.formatEther(balance);
 
       return `${balanceInEther} AVAX`;
     } else return `0 AVAX`;
   };
 
   const calculateRevenue = (orders) => {
-    const revenue = orders.reduce(
-      (prev, curr, index, array) => prev + curr.orderAmount,
-      0
-    );
-    return `$${revenue}`;
+    const revenue = orders.reduce((prev, curr, index, array) => {
+      return prev + parseFloat(curr.orderAmount);
+    }, 0);
+    return revenue % 1 == 0
+      ? `${parseInt(revenue)} AVAX`
+      : `${revenue.toFixed(4)} AVAX`;
   };
+
   const calculateTips = (orders) => {
     const tips = orders.reduce((prev, curr, index, array) => {
       return prev + parseFloat(curr.tipAmount);
     }, 0);
-    return `${tips} AVAX`;
+    return tips % 1 == 0 ? `${parseInt(tips)} AVAX` : `${tips.toFixed(4)} AVAX`;
   };
 
   const statistics = [
@@ -47,13 +48,13 @@ export default function Dashbaord({
       icon: Waiter,
     },
     {
-      boxColor: "violet",
-      title: "Tips total",
+      boxColor: "green",
+      title: "Accumulated Tips",
       label: calculateTips(orders),
       icon: Tips,
     },
     {
-      boxColor: "green",
+      boxColor: "orange",
       title: "Orders",
       label: `${orders?.length}`,
       icon: Orders,

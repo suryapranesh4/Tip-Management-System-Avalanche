@@ -19,9 +19,8 @@ export default function SearchBar({
   const [waiterName, setName] = React.useState(name);
 
   const calculateBalance = (balance) => {
-    if (balance > 0) {
-      let toNumber = balance.toNumber(),
-        balanceInEther = ethers.utils.formatEther(toNumber);
+    if (balance > 0 && parseInt(balance.toString()) > 0) {
+      let balanceInEther = ethers.utils.formatEther(balance);
 
       return `${balanceInEther} AVAX`;
     } else return `0 AVAX`;

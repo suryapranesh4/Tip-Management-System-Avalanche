@@ -6,15 +6,19 @@ import { useSort } from "@table-library/react-table-library/sort";
 import Loader from "./Loader";
 
 export default function TipHistory({ orders, isLoading }) {
+  const amountFormat = (value) => {
+    return value % 1 == 0 ? `${parseInt(value)} AVAX` : `${value} AVAX`;
+  };
+
   const columns = [
     {
-      label: "Order Number #",
+      label: "Order #",
       renderCell: (item) => item.orderNumber,
       sort: { sortKey: "NUMBER" },
     },
     {
       label: "Amount",
-      renderCell: (item) => `$${item.orderAmount}`,
+      renderCell: (item) => amountFormat(item.orderAmount),
       sort: { sortKey: "AMOUNT" },
     },
     {
@@ -29,11 +33,11 @@ export default function TipHistory({ orders, isLoading }) {
     },
     {
       label: "Tips",
-      renderCell: (item) => `${item.tipAmount} AVAX`,
+      renderCell: (item) => amountFormat(item.tipAmount),
       sort: { sortKey: "TIPS" },
     },
   ];
-  const nodes = orders?.filter((order, i) => order?.tipAmount > 0.002) || [];
+  const nodes = orders?.filter((order, i) => order?.tipAmount > 0) || [];
   const data = { nodes };
   const sort = useSort(
     data,

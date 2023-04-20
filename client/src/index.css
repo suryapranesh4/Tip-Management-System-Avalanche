@@ -11,17 +11,23 @@
   --divbackgound: #302d4b;
   --themecolor: #ebeff3;
   --textcolor: #000000;
-  --highlightedtext: #9155fd;
+  /* --highlightedtext: #9155fd; */
+  --highlightedtext: rgba(0, 119, 182, 1);
   --greytext: #9794af;
   --databackgroundgradient: rgba(231, 227, 252, 0.04);
   --scrollbar-track: #f4f7fe;
   --scrollbar-thumb: #d3d9e9;
 
   --boxshadowcolor: rgb(19 17 32 / 42%) 0px 4px 8px -4px;
-  --backgroundimagegradient: linear-gradient(
+  /* --backgroundimagegradient: linear-gradient(
     98deg,
     rgb(145, 85, 253),
     rgb(198, 167, 254) 94%
+  ); */
+  --backgroundimagegradient: linear-gradient(
+    86.3deg,
+    rgba(0, 119, 182, 1) 3.6%,
+    rgba(8, 24, 68, 1) 87.6%
   );
 }
 

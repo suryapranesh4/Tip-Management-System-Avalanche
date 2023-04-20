@@ -6,6 +6,9 @@ import { useSort } from "@table-library/react-table-library/sort";
 import Loader from "./Loader";
 
 export default function ServerLeaderboard({ leaderboard, isLoading }) {
+  const amountFormat = (value) => {
+    return value % 1 == 0 ? `${parseInt(value)} AVAX` : `${value} AVAX`;
+  };
   const columns = [
     {
       label: "Server Wallet",
@@ -19,7 +22,7 @@ export default function ServerLeaderboard({ leaderboard, isLoading }) {
     },
     {
       label: "Tips",
-      renderCell: (item) => `${item.tip} AVAX`,
+      renderCell: (item) => amountFormat(item.tip),
       sort: { sortKey: "TIPS" },
     },
   ];

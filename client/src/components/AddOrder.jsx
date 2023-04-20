@@ -5,6 +5,7 @@ import "./styles.css";
 import Modal from "./Modal";
 import deleteIcon from "../images/delete.png";
 import addIcon from "../images/addIcon.png";
+import qrCode from "../images/frame.png";
 import thankyou from "../images/thankyou.gif";
 
 import Input from "../utils/inputField";
@@ -20,7 +21,6 @@ export default function AddOrder({
 }) {
   const [cart, setCart] = React.useState([{ name: "", rate: 0, quantity: 1 }]);
   const [tip, setTip] = React.useState(0);
-  const [showThankyou, setShowThanks] = React.useState(false);
 
   const [showQR, setShowQR] = React.useState(false);
 
@@ -62,169 +62,158 @@ export default function AddOrder({
 
   const handleTipAmount = (e) => {
     setTip(e.target.value);
-    handleChange(e, "tipAmount");
+    handleChange(e.target.value);
   };
 
   const handleDone = () => {
     addOrder();
-    setShowThanks(true);
-    setTimeout(() => {
-      setShowQR(false);
-      setCart([{ name: "", rate: 0, quantity: 1 }]);
-      setTip(0);
-      setShowThanks(false);
-    }, 5000);
+    setShowQR(false);
+    setCart([{ name: "", rate: 0, quantity: 1 }]);
+    setTip(0);
+    handleChange(0);
   };
 
   return (
-    <div className="addOrder addOrderData">
-      <Modal onClose={() => {}} show={showQR}>
-        {isLoading ? (
-          <Loader />
-        ) : (
-          <React.Fragment>
-            {showThankyou ? (
-              <div className="thankyou">
-                <img src={thankyou} alt="thankyou" width={400} height={400} />
+    <div className="addOrder">
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <div className="addOrderData">
+          <Modal onClose={() => {}} show={showQR}>
+            <React.Fragment>
+              <div className="qrtitle">
+                {/* <div className="title">Scan QR Code to make payment </div> */}
+                <div className="orderTotalAmount">
+                  Order Total : {calculateTotal()} AVAX
+                </div>
+                <img src={qrCode} alt="qrCode" className="qrCode" />
               </div>
-            ) : (
-              <React.Fragment>
-                <div className="qrtitle">
-                  <div className="title">Scan QR Code to make payment </div>
-                  <div className="orderTotalAmount">
-                    Order Total : {calculateTotal()} AVAX
-                  </div>
-                  <QRCode
-                    size={256}
-                    style={{
-                      height: "300px",
-                      maxWidth: "100%",
-                      width: "300px",
-                    }}
-                    value={"Hey"}
-                    viewBox={`0 0 256 256`}
+              <div className="doneButton" onClick={() => handleDone()}>
+                Done
+              </div>
+            </React.Fragment>
+          </Modal>
+          <div className="title">Add order</div>
+          <div className="orderSection">
+            <div className="servedBy">
+              <div className="orderServedText">Order Served by</div>
+              <div className="servedByButton">
+                {name ? `${name} (${currentAccount})` : currentAccount}
+              </div>
+            </div>
+            <div className="orderItems">
+              <div className="title">Order Items</div>
+              <form>
+                <table>
+                  <thead>
+                    <tr>
+                      <th className="itemName">Item name</th>
+                      <th className="itemRate">Rate</th>
+                      <th className="itemX"></th>
+                      <th className="itemQuantity">Quantity</th>
+                      <th className="itemTotal"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {cart.map((data, i) => {
+                      return (
+                        <tr key={i}>
+                          <td className="itemName">
+                            <input
+                              value={cart[i].name}
+                              name="name"
+                              onChange={(e) => updateItem(e, i)}
+                            />
+                          </td>
+                          <td className="itemRate">
+                            <input
+                              value={cart[i].rate}
+                              type="number"
+                              name="rate"
+                              step="1"
+                              min="0"
+                              onChange={(e) => updateItem(e, i)}
+                            />
+                          </td>
+                          <td className="itemX">X</td>
+                          <td className="itemQuantity">
+                            <input
+                              value={cart[i].quantity}
+                              type="number"
+                              name="quantity"
+                              min="1"
+                              step="1"
+                              onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                              onChange={(e) => updateItem(e, i)}
+                            />
+                          </td>
+                          <td className="itemTotal">
+                            {cart[i].rate * cart[i].quantity} AVAX
+                          </td>
+                          <td>
+                            <img
+                              src={deleteIcon}
+                              alt="delete"
+                              height={30}
+                              width={30}
+                              className={
+                                cart && cart.length > 1
+                                  ? "deleteIcon"
+                                  : "deleteIconDisable"
+                              }
+                              onClick={() =>
+                                cart && cart.length > 1 ? deleteItem(i) : null
+                              }
+                            />
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+                <div className="addItem" onClick={() => addItem()}>
+                  <img
+                    src={addIcon}
+                    alt="addIcon"
+                    className="addIcon"
+                    height={30}
+                    width={30}
+                  />
+                  <div>Add Item</div>
+                </div>
+              </form>
+
+              <div className="tipSubmit">
+                <div className="tipData">
+                  <div>Tips</div>
+                  <Input
+                    name="tipAmount"
+                    type="number"
+                    value={tip}
+                    defaultValue={tip}
+                    handleChange={(e) => handleTipAmount(e)}
                   />
                 </div>
-                <div className="doneButton" onClick={() => handleDone()}>
-                  Done
+                <div className="tipData">
+                  <div>Total</div>
+                  <div className="totalAVAX">{calculateTotal()} AVAX</div>
                 </div>
-              </React.Fragment>
-            )}
-          </React.Fragment>
-        )}
-      </Modal>
-      <div className="title">Add order</div>
-      <div className="orderSection">
-        <div className="servedBy">
-          <div>Order Served by</div>
-          <div className="servedByButton">
-            {name ? `${name} (${currentAccount})` : currentAccount}
+                <button
+                  type="button"
+                  onClick={() => (cartTotal() > 0 ? handleAddOrder() : null)}
+                  className={
+                    cartTotal() > 0
+                      ? "addOrderButton"
+                      : "addOrderButton addOrderDisable"
+                  }
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="orderItems">
-          <div className="title">Order Items</div>
-          <form>
-            <table>
-              <thead>
-                <tr>
-                  <th className="itemName">Item name</th>
-                  <th className="itemRate">Rate</th>
-                  <th className="itemX"></th>
-                  <th className="itemQuantity">Quantity</th>
-                  <th className="itemTotal"></th>
-                </tr>
-              </thead>
-              <tbody>
-                {cart.map((data, i) => {
-                  return (
-                    <tr key={i}>
-                      <td className="itemName">
-                        <input
-                          value={cart[i].name}
-                          name="name"
-                          onChange={(e) => updateItem(e, i)}
-                        />
-                      </td>
-                      <td className="itemRate">
-                        <input
-                          value={cart[i].rate}
-                          type="number"
-                          name="rate"
-                          onChange={(e) => updateItem(e, i)}
-                        />
-                      </td>
-                      <td className="itemX">X</td>
-                      <td className="itemQuantity">
-                        <input
-                          value={cart[i].quantity}
-                          type="number"
-                          name="quantity"
-                          onChange={(e) => updateItem(e, i)}
-                        />
-                      </td>
-                      <td className="itemTotal">
-                        {cart[i].rate * cart[i].quantity} AVAX
-                      </td>
-                      <td>
-                        <img
-                          src={deleteIcon}
-                          alt="delete"
-                          height={30}
-                          width={30}
-                          className={
-                            cart && cart.length > 1
-                              ? "deleteIcon"
-                              : "deleteIconDisable"
-                          }
-                          onClick={() =>
-                            cart && cart.length > 1 ? deleteItem(i) : null
-                          }
-                        />
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-            <div className="addItem" onClick={() => addItem()}>
-              <img
-                src={addIcon}
-                alt="addIcon"
-                className="addIcon"
-                height={30}
-                width={30}
-              />
-              <div>Add Item</div>
-            </div>
-          </form>
-
-          <div className="tipSubmit">
-            <div className="tipData">
-              <div>Tips</div>
-              <Input
-                name="tipAmount"
-                type="number"
-                handleChange={(e) => handleTipAmount(e)}
-              />
-            </div>
-            <div className="tipData">
-              <div>Total</div>
-              <div className="totalAVAX">{calculateTotal()} AVAX</div>
-            </div>
-            <button
-              type="button"
-              onClick={() => (cartTotal() > 0 ? handleAddOrder() : null)}
-              className={
-                cartTotal() > 0
-                  ? "addOrderButton"
-                  : "addOrderButton addOrderDisable"
-              }
-            >
-              Submit
-            </button>
-          </div>
-        </div>
-      </div>
+      )}
     </div>
   );
 }

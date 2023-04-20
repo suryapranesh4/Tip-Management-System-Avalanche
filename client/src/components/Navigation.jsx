@@ -36,7 +36,7 @@ export default function AppTitle({
           })}
         </React.Fragment>
       ) : (
-        <div className="eachItem selected">Dashboard</div>
+        <div className="eachItem selected">Home</div>
       )}
     </div>
   );
