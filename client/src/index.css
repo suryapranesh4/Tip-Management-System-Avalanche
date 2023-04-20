@@ -53,4 +53,5 @@ body::-webkit-scrollbar-thumb {
 
 #root {
   width: 100%;
+  display: flex;
 }

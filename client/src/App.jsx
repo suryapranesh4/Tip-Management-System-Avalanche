@@ -82,22 +82,26 @@ function App() {
 
   return (
     <div className="layout">
-      <AppTitle />
-      <SearchBar
-        currentAccount={currentAccount}
-        balance={accountBalance}
-        name={waiterName}
-        updateWaiterName={updateWaiterName}
-        handleNameUpdate={handleNameUpdate}
-      />
-      <Navigation
-        items={navBarItems}
-        selectedItem={selectedItem}
-        setSelectedItem={setSelectedItem}
-        currentAccount={currentAccount}
-      />
-      <div className="details">
-        {currentAccount ? <Home selectedItem={selectedItem} /> : <Connect />}
+      <div className="headerComponent">
+        <AppTitle />
+        <SearchBar
+          currentAccount={currentAccount}
+          balance={accountBalance}
+          name={waiterName}
+          updateWaiterName={updateWaiterName}
+          handleNameUpdate={handleNameUpdate}
+        />
+      </div>
+      <div className="footer">
+        <Navigation
+          items={navBarItems}
+          selectedItem={selectedItem}
+          setSelectedItem={setSelectedItem}
+          currentAccount={currentAccount}
+        />
+        <div className="details">
+          {currentAccount ? <Home selectedItem={selectedItem} /> : <Connect />}
+        </div>
       </div>
     </div>
   );

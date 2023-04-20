@@ -10,7 +10,7 @@ export default function AppTitle({
   return (
     <div className="NavBar">
       {currentAccount ? (
-        <React.Fragment>
+        <div>
           {items.map((item, i) => {
             let { name, id, icon, iconSelected } = item;
             return (
@@ -34,7 +34,7 @@ export default function AppTitle({
               </div>
             );
           })}
-        </React.Fragment>
+        </div>
       ) : (
         <div className="eachItem selected">Home</div>
       )}

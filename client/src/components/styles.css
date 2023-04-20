@@ -9,6 +9,11 @@
   width: 100%;
 }
 
+.subtitle {
+  font-size: 14px;
+  margin-top: 4px;
+}
+
 .tipData {
   display: flex;
   align-items: center;
@@ -63,10 +68,11 @@
   width: auto;
 }
 
-.subtitle {
-  font-size: 16px;
-  color: var(--textcolor);
-  text-transform: uppercase;
+.details {
+  display: flex;
+  flex-direction: column;
+  /* flex: 1; */
+  width: 80%;
 }
 
 .orderDetails {
@@ -286,11 +292,17 @@ input {
   color: var(--textcolor);
 }
 
-.appTitle {
-  padding: 0 32px;
+.tipMeApp {
   display: flex;
   align-items: center;
-  font-size: 32px;
+}
+
+.appTitle {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 32px;
+  font-size: 28px;
   font-weight: bold;
   background: white;
   /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
@@ -303,6 +315,7 @@ input {
 }
 
 .searchBar {
+  width: 80%;
   padding: 16px 32px;
   display: flex;
   justify-content: flex-end;
@@ -357,10 +370,15 @@ input {
 }
 
 .NavBar {
-  padding: 16px;
+  width: 20%;
+  padding: 8px 16px;
   display: flex;
   flex-direction: column;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.navBarItems {
+  height: 100%;
 }
 
 .eachItem {
@@ -369,7 +387,7 @@ input {
   color: black;
   border-radius: 8px;
   padding: 12px;
-  margin: 12px 0;
+  margin: 18px 0;
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
@@ -381,7 +399,7 @@ input {
   background: var(--backgroundimagegradient);
   border-radius: 8px;
   padding: 12px;
-  margin: 12px 0;
+  margin: 18px 0;
   cursor: pointer;
   -webkit-box-shadow: 0px 0px 10px 2px var(--highlightedtext);
   -moz-box-shadow: 0px 0px 10px 2px var(--highlightedtext);
